@@ -1,10 +1,10 @@
 import { changeWindowTheme, getCryptoItem } from "./ui.js";
 import { getFetchApi, allCrypto } from "./api.js";
-// import { getChart } from "./chart.js";
+import { getChart } from "./chart.js";
 
 async function initApp() {
   await getFetchApi(); 
-  // getChart();          
+  // getChart(coinId);          
 }
 
 initApp();

@@ -1,3 +1,5 @@
+import { openChartModal } from "./chart.js";
+
 const themeButton = document.getElementById("themeToggle");
 const crypto = document.querySelector(".crypto-list");
 
@@ -91,7 +93,7 @@ export function getCryptoItem(cryptoData) {
   });
 }
 
-const favoriteBtcArray =[];
+const favoriteBtcArray = [];
 
 function isFavorite(coinId) {
   return favoriteBtcArray.includes(coinId);
@@ -110,18 +112,22 @@ function toggleFavorite(coinId) {
 
   if (button) {
     if (isFavorite(coinId)) {
-      button.textContent = '⭐'; 
-      button.classList.add('active'); 
+      button.textContent = "⭐";
+      button.classList.add("active");
     } else {
-      button.textContent = '☆'; 
-      button.classList.remove('active'); 
+      button.textContent = "☆";
+      button.classList.remove("active");
     }
   }
 }
 
-document.addEventListener('click', function(event) {
-  if (event.target.classList.contains('btn-favorite')) {
+document.addEventListener("click", function (event) {
+  if (
+    event.target.classList.contains("btn-card") &&
+    event.target.dataset.action === "chart"
+  ) {
     const coinId = event.target.dataset.coinId;
-    toggleFavorite(coinId);
+    // toggleFavorite(coinId);
+    openChartModal(coinId);
   }
 });
